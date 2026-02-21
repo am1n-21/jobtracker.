@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <a class="nav-link" href="landing.html">Home</a>
+        <a class="nav-link" href="register.html">Register</a>
+    </nav>
+
+    <form id="login-form">
+        <div>
+            <label class="label" for="email-input">Email</label>
+            <input class="input" id="email-input" type="email" name="email-input" required>
+        </div>
+
+        <div>
+            <label class="label" for="password-input">Password</label>
+            <input class="input" id="pass-input" type="password" name="password-input" minlength="8">
+        </div>
+
+        <button id="submit-btn" type="submit">Log In</button>
+    </form>
+
+    <script src="../src/login.js"></script>
+</body>
+</html>

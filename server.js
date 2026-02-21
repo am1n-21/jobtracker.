@@ -11,7 +11,7 @@ import { profileRouter } from './routes/profile.js';
 import { createTables, viewUsersTable, viewApplicationsTable } from './db/db.js';
 
 // CONSTS
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000; 
 const app = express();
 app.use(cors());
 
@@ -20,4 +20,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // SERVER
+app.use('/', appRouter);
+app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 app.listen(PORT, () => console.log('Listening on port'));
