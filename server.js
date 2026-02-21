@@ -1,6 +1,7 @@
 // IMPORTS
 import express from 'express';
 import dotenv from 'dotenv';
+import session from 'express-session';
 import cors from 'cors'
 dotenv.config();
 
@@ -18,6 +19,13 @@ app.use(cors());
 // MIDDLEWARE
 app.use(express.json());
 app.use(express.static('public'));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+viewUsersTable();
 
 // SERVER
 app.use('/', appRouter);

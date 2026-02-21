@@ -7,11 +7,11 @@ const passwordInput = document.getElementById('password-input');
 
 // EVENT LISTENERS
 form.addEventListener('submit', async (e) => {
-    e.target.preventDefault();
+    e.preventDefault();
 
     // Build form body
     const formBody = {
-        fullName: nameInput.value,
+        name: nameInput.value,
         email: emailInput.value,
         password: passwordInput.value
     }
@@ -24,6 +24,7 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify(formBody)
         });
 
+        const data = await res.json();
         // If res was successful redirect to dashboard
         if (res.ok) {
             window.location.href = '../../views/dashboard'
