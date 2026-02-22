@@ -24,10 +24,9 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify(formBody)
         });
 
-        const data = await res.json();
         // If res was successful redirect to dashboard
         if (res.ok) {
-            window.location.href = '../../views/dashboard'
+            window.location.href = '/dashboard';
         } else {
             // HANDLE Error display for front end here
         }

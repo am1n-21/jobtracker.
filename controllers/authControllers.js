@@ -54,7 +54,7 @@ export async function registerController(req, res) {
         req.session.userId = result.lastID;
 
         // Return success
-        console.log('SUCCESS');
+        console.log('SUCCESSFUL REGISTER');
         res.status(201).json({ message: 'User registered', userId: req.session.userId });
         await db.close();
 
@@ -66,5 +66,39 @@ export async function registerController(req, res) {
 
 // Handles a user login
 export async function loginController(req, res) {
-    
+    // Check if fields exist
+    let { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    // Check for user in DB
+    try {
+        // Create connection
+        const db = await getDBConnection();
+
+        // Find user in DB
+        const existing = await db.get('SELECT id, password FROM users WHERE email = ?', [email]);
+        if (!existing) {
+            return res.status(400).json({ error: 'Email is not registered.' });
+        }
+
+        // Check if passwords match
+        const compare = await bcrypt.compare(password, existing.password);
+        if (!compare) {
+            return res.status(400).json({ error: 'The password was incorrect.' });
+        }
+
+        req.session.userId = existing.id;
+
+        // Return success
+        console.log('SUCCESSFUL REGISTER');
+        res.status(200).json({ message: 'Successful login', userId: existing.id });
+        await db.close();
+
+    } catch (err) {
+        console.error('Login error:', err.message);
+        res.status(500).json({ error: 'Login failed. Please try again.' });
+    }
 }

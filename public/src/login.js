@@ -1,12 +1,12 @@
 // DOM
-const form = document.getElementById('register-form');
+const form = document.getElementById('login-form');
 const emailInput = document.getElementById('email-input');
 const passwordInput = document.getElementById('password-input');
 
 
 // EVENT LISTENERS
 form.addEventListener('submit', async (e) => {
-    e.target.preventDefault();
+    e.preventDefault();
 
     // Build form body
     const formBody = {
@@ -24,7 +24,7 @@ form.addEventListener('submit', async (e) => {
 
         // If res was successful redirect to dashboard
         if (res.ok) {
-            window.location.href = '../../views/dashboard'
+            window.location.href = '/dashboard'
         } else {
             // HANDLE Error display for front end here
         }
