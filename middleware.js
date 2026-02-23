@@ -5,6 +5,6 @@ export function requireAuth(req, res, next) {
         next();
     } else {
         // Send user back if session doesn't exist
-        res.redirect('/login.html');
+        res.redirect('/pages/login.html');
     }
 }

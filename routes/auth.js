@@ -10,7 +10,7 @@ authRouter.post('/register', registerController);
 authRouter.post('/login', loginController);
 authRouter.get('/logout', (req, res) => {
     req.session.destroy();
-    res.redirect('/landing.html');
+    res.redirect('/pages/landing.html');
 });
 
 
