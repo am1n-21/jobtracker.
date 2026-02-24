@@ -1,7 +1,20 @@
 /* HTML AND BODY */
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', 'Segoe UI';
+    background-color: #F0EFED;
+}
+
+h1 {
+    color: #1E1E1E;
+}
+
+h2 {
+    color: #2A2A2A;
 }
 
