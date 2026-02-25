@@ -5,7 +5,7 @@ const appsContainer = document.getElementById('apps-container');
 /**
  * Fetches the apps from server side
  */
-async function displayApps() {
+async function fetchApps() {
     try {
         const res = await fetch('/apps');
         const data = await res.json();
@@ -31,19 +31,49 @@ function renderApps(apps) {
         appsContainer.innerHTML +=
         `
         <div class="app-entry">
-            <p class="company-text">${app.name}</p>
-            <p class="job-text">${app.title}</p>
-            <p class="date-text">${app.date_applied}</p>
-            <p class="status-text" class="pending">${app.status}</p>
+            <div class="app-entry-left">
+                <p class="company-text">${app.name}</p>
+                <p class="job-text">${app.title}</p>
+            </div>
+
+            <div class="app-entry-right">
+                <p class="date-text">${app.date_applied}</p>
+                <span class="badge badge-pending">${app.status}</span>
+                <div class="actions-div">
+                    <a class="view" href="">View</a>
+                    <a class="delete" href="">Delete</a>
+            </div>
         </div>
         `
     });
     return;
 }
 
-async function renderStats() {
+/**
+ * Fetches the statistics from the server side
+ */
+async function fetchStats() {
+    try {
+        const res = await fetch('/stats');
+        const data = await res.json();
+        renderStats(data);
+        return;
+    } catch (err) {
+        console.log(err);
+    }
+}
 
+/**
+ * Renders the stats onto the DOM
+ */
+
+async function renderStats(data) {
+    // Update each field with stat
+    document.getElementById('applied').textContent = data.total;
+    document.getElementById('pending').textContent = data.pending;
+    document.getElementById('rejected').textContent = data.rejected;
 }
 
 // FUNCTION CALLS
-displayApps();
+fetchApps();
+fetchStats();

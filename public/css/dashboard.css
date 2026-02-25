@@ -53,40 +53,98 @@ body {
     background-color: #FFD6D6;
 }
 
-/* APPLICATIONS */
-#apps-table-div {
-    align-self: center;
-    width: 90%;
-    margin-top: 3em;
-    border: 1px solid blue;
-}
-#columns-container {
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    gap: 1.3em;
-    border: 1px solid black;
-}
-
 #apps-container {
     margin-top: 2em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    width: 95%;
+    gap: 0.75em;
+    width: 90%;
+    max-width: 700px;
     align-self: center;
+    margin-bottom: 3em;
 }
 
 .app-entry {
-    padding: 1em 1.5em;
+    padding: 1.2em 1.5em;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
     border: 1px solid #E0E0E0;
-    border-radius: 5px;
-    gap: 2em;
+    border-radius: 8px;
+    transition: box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
 }
 
 .app-entry:hover {
-    background-color: #F4F4F2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    transform: translateY(-1px);
 }
+
+.app-entry-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.company-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin: 0;
+}
+
+.job-text {
+    font-size: 0.85rem;
+    color: #888888;
+    margin: 0;
+}
+
+.app-entry-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.date-text {
+    font-size: 0.8rem;
+    color: #AAAAAA;
+    margin: 0;
+}
+
+/* STATUS BADGES */
+.badge {
+    padding: 0.3em 0.85em;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-applied  { background: #C8F5D5; color: #1E7C3A; }
+.badge-pending  { background: #FFF4C2; color: #9A7D0A; }
+.badge-rejected { background: #FFD6D6; color: #9B2020; }
+
+/* ACTION LINKS */
+.actions-div {
+    display: flex;
+    gap: 0.75em;
+}
+
+.view {
+    font-size: 0.8rem;
+    color: #1E1E1E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.delete {
+    font-size: 0.8rem;
+    color: #9B2020;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.view:hover   { text-decoration: underline; }
+.delete:hover { text-decoration: underline; }

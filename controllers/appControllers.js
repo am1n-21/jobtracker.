@@ -56,3 +56,30 @@ export async function fetchApplicationsController(req, res) {
         res.status(500).json({ error: 'Fetch failed. Please try again!' });
     }
 }
+
+/**
+ * Fetches the stats of applications
+ */
+export async function fetchStatsController(req, res) {
+    try {
+        const db = await getDBConnection();
+
+        const query = `
+            SELECT
+                COUNT(*) AS total,
+                COUNT(CASE WHEN status = 'pending' THEN 1 END) AS pending,
+                COUNT(CASE WHEN status = 'rejected' THEN 1 END) AS rejected
+            FROM applications
+            WHERE user_id = ?
+        `
+        const params = [req.session.userId];
+        const stats = await db.get(query, params);
+
+        // Return success
+        console.log('SUCCESSFUL FETCHED STATS');
+        res.status(200).json(stats);
+        await db.close();
+    } catch (err) {
+        console.log(err);
+    }
+}
