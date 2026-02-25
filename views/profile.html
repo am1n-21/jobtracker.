@@ -12,7 +12,75 @@
 </head>
 
 <body>
-    <button id="logout-btn">LOGOUT</button>
+    <nav>
+        <div id="logo">
+            <p id="logo-text">jobtrack.</p>
+        </div>
+        <div id="links">
+            <a class="nav-link" href="dashboard">Dashboard</a>
+            <a class="nav-link" href="create">Create</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <div id="profile-header">
+            <div id="avatar">J</div>
+            <div id="profile-title">
+                <h1 id="display-name">John Smith</h1>
+                <p id="display-email">john@example.com</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Account Details</h2>
+
+            <form id="details-form">
+                <div class="input-div">
+                    <label class="label" for="name-input">Full Name</label>
+                    <input class="input" id="name-input" type="text" placeholder="Your name" />
+                </div>
+
+                <div class="input-div">
+                    <label class="label" for="email-input">Email</label>
+                    <input class="input" id="email-input" type="email" placeholder="Your email" />
+                </div>
+
+                <button type="submit" class="btn-primary">Save Changes</button>
+            </form>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Change Password</h2>
+
+            <form id="password-form">
+                <div class="input-div">
+                    <label class="label" for="current-password">Current Password</label>
+                    <input class="input" id="current-password" type="password" placeholder="••••••••" />
+                </div>
+
+                <div class="input-div">
+                    <label class="label" for="new-password">New Password</label>
+                    <input class="input" id="new-password" type="password" placeholder="••••••••" />
+                </div>
+
+                <div class="input-div">
+                    <label class="label" for="confirm-password">Confirm New Password</label>
+                    <input class="input" id="confirm-password" type="password" placeholder="••••••••" />
+                </div>
+
+                <button type="submit" class="btn-primary">Update Password</button>
+            </form>
+        </div>
+
+        <div class="section-card" id="danger-zone">
+            <h2 class="section-title danger-title">Account</h2>
+            <p class="danger-text">Logging out will end your current session.</p>
+            <a href="/auth/logout" class="btn-logout">Log Out</a>
+        </div>
+
+    </main>
+
     <script src="/src/profile.js"></script>
 </body>
 </html>

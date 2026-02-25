@@ -1,0 +1,161 @@
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* MAIN */
+main {
+    align-self: center;
+    width: 90%;
+    max-width: 520px;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+/* PROFILE HEADER */
+#profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1E1E1E;
+    color: #F0EFED;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#profile-title h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+#display-email {
+    margin: 0.2em 0 0 0;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+/* SECTION CARDS */
+.section-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 1rem;
+    color: #1E1E1E;
+}
+
+/* FORMS */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888888;
+}
+
+.input {
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    padding: 0.8em 1em;
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    background: #F9F9F9;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+}
+
+.input:focus {
+    border-color: #1E1E1E;
+}
+
+/* BUTTONS */
+.btn-primary {
+    margin-top: 0.3em;
+    padding: 0.85em;
+    width: 100%;
+    background: #1E1E1E;
+    color: #F0EFED;
+    border: 1px solid #1E1E1E;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: #1E1E1E;
+}
+
+/* DANGER ZONE */
+#danger-zone {
+    border-color: #FFD6D6;
+}
+
+.danger-title {
+    color: #9B2020;
+}
+
+.danger-text {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #888888;
+}
+
+.btn-logout {
+    display: block;
+    text-align: center;
+    padding: 0.85em;
+    width: 100%;
+    background: transparent;
+    color: #9B2020;
+    border: 1px solid #FFD6D6;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-logout:hover {
+    background: #FFD6D6;
+    color: #9B2020;
+}

@@ -37,7 +37,6 @@ form {
     border: 1px solid #E0E0E0;
     background: #F9F9F9;
     outline: none;
-    transition: border 0.2s;
 }
 
 .input:focus {

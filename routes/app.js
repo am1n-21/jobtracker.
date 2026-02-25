@@ -13,3 +13,7 @@ appRouter.get('/dashboard', requireAuth, (req, res) => {
 appRouter.get('/profile', requireAuth, (req, res) => {
     res.sendFile('profile.html', { root: './views' });
 });
+
+appRouter.get('/create', requireAuth ,(req, res) => {
+    res.sendFile('create.html', { root: './views' });
+});

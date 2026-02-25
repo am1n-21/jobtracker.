@@ -1,0 +1,92 @@
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* STATISTICS */
+#stats-board-div {
+    max-width: 500px;
+    margin-top: 2em;
+    width: 90%;
+    align-self: center;
+    gap: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.stats-box {
+    border-radius: 5px;
+    padding-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    width: 33%;
+}
+
+.stats-text {
+    margin-bottom: 0.5em;
+    font-size: 1.5rem;
+    align-self: center;
+    color: #888888;
+}
+
+.stats-num {
+    margin-bottom: 0.5em;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#total-apps-stat {
+    background-color: #FFF4C2;
+}
+
+#total-pending-stat {
+    background-color: #C8F5D5;
+}
+
+#total-rejected-stat {
+    background-color: #FFD6D6;
+}
+
+/* APPLICATIONS */
+#apps-table-div {
+    align-self: center;
+    width: 90%;
+    margin-top: 3em;
+    border: 1px solid blue;
+}
+#columns-container {
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    gap: 1.3em;
+    border: 1px solid black;
+}
+
+#apps-container {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 95%;
+    align-self: center;
+}
+
+.app-entry {
+    padding: 1em 1.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    gap: 2em;
+}
+
+.app-entry:hover {
+    background-color: #F4F4F2;
+}

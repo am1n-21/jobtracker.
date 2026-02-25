@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Application</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/create.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+            <p id="logo-text">jobtrack.</p>
+        </div>
+        <div id="links">
+            <a class="nav-link" href="dashboard">Dashboard</a>
+            <a class="nav-link" href="profile">Profile</a>
+        </div>
+    </nav>
+
+    <main>
+        <div id="form-header">
+            <h1>New Application</h1>
+            <p id="form-subtext">Track a new job you've applied to</p>
+        </div>
+
+        <form id="create-form">
+
+            <div class="input-div">
+                <label class="label" for="company-input">Company</label>
+                <input class="input" id="company-input" type="text" placeholder="e.g. Google" />
+            </div>
+
+            <div class="input-div">
+                <label class="label" for="title-input">Job Title</label>
+                <input class="input" id="title-input" type="text" placeholder="e.g. Software Engineer" />
+            </div>
+
+            <div class="input-div">
+                <label class="label" for="url-input">Job Posting URL</label>
+                <input class="input" id="url-input" type="url" placeholder="https://..." />
+            </div>
+
+            <div class="input-div">
+                <label class="label" for="date-input">Date Applied</label>
+                <input class="input" id="date-input" type="date" />
+            </div>
+
+            <div class="input-div">
+                <label class="label" for="status-input">Status</label>
+                <select class="input" id="status-input">
+                    <option value="applied">Applied</option>
+                    <option value="pending">Pending</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+
+            <div class="input-div">
+                <label class="label" for="notes-input">Notes</label>
+                <textarea class="input" id="notes-input" rows="4" placeholder="Salary range, recruiter name, anything relevant..."></textarea>
+            </div>
+
+            <button type="submit">Add Application</button>
+
+        </form>
+    </main>
+
+    <script src="/src/create.js"></script>
+</body>
+</html>

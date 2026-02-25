@@ -5,15 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <a class="nav-link" href="create">Create Track</a>
-        <a class="nav-link" href="profile">Profile</a>
+        <div id="logo">
+            <p id="logo-text">jobtrack.</p>
+        </div>
+        
+        <div id="links">
+            <a class="nav-link" href="create">Create</a>
+            <a class="nav-link" href="profile">Profile</a>
+        </div>
     </nav>
+
+    <div id="stats-board-div">
+        <div class="stats-box" id="total-apps-stat">
+            <p class="stats-text">Applied</p>
+            <div class="stats-num">0</div>
+        </div>
+
+        <div class="stats-box" id="total-pending-stat">
+            <p class="stats-text">Pending</p>
+            <div class="stats-num">0</div>
+        </div>
+
+        <div class="stats-box" id="total-rejected-stat">
+            <p class="stats-text">Rejected</p>
+            <div class="stats-num">0</div>
+        </div>
+    </div>
+
+    <div id="apps-container">
+        <div class="app-entry" id="app-1">
+            <p class="company-text">Google</p>
+            <p class="job-text">Software Engineer</p>
+            <p class="date-text">25/13/26</p>
+            <p class="status-text" class="pending">Pending</p>
+        </div>
+
+        <div class="app-entry" id="app-2">
+            <p class="company-text">Amazon</p>
+            <p class="job-text">Software Engineer</p>
+            <p class="date-text">25/13/26</p>
+            <p class="status-text" class="pending">Pending</p>
+        </div>
+
+        <div class="app-entry" id="app-3">
+            <p class="company-text">Atlassian</p>
+            <p class="job-text">Software Engineer</p>
+            <p class="date-text">25/13/26</p>
+            <p class="status-text" class="pending">Pending</p>
+        </div>
+
+        <div class="app-entry" id="app-4">
+            <p class="company-text">Microsoft</p>
+            <p class="job-text">Software Engineer</p>
+            <p class="date-text">25/13/26</p>
+            <p class="status-text" class="pending">Pending</p>
+        </div>
+    </div>
+
 </body>
 </html>
