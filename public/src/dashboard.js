@@ -41,7 +41,7 @@ function renderApps(apps) {
                 <span class="badge badge-pending">${app.status}</span>
                 <div class="actions-div">
                     <a class="view" href="">View</a>
-                    <a class="delete" href="">Delete</a>
+                    <a class="delete" data-id="${app.id}" href="">Delete</a>
             </div>
         </div>
         `
@@ -73,6 +73,21 @@ async function renderStats(data) {
     document.getElementById('pending').textContent = data.pending;
     document.getElementById('rejected').textContent = data.rejected;
 }
+
+// EVENT LISTENERS
+document.addEventListener('click', async (e) => {
+    // Check for delete button
+    if (e.target.classList.contains('delete')) {
+        const id = e.target.dataset.id;
+
+        await fetch(`/delete/${id}`, {
+            method: 'DELETE'
+        });
+
+        console.log('SUCCESSFUL DELETE');
+        window.location.reload();
+    }
+});
 
 // FUNCTION CALLS
 fetchApps();

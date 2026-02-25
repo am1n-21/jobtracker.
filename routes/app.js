@@ -4,7 +4,8 @@ import { requireAuth } from '../middleware.js';
 import { 
     createApplicationController, 
     fetchApplicationsController, 
-    fetchStatsController 
+    fetchStatsController,
+    deleteAppController
 } from '../controllers/appControllers.js';
 
 // CONSTS
@@ -27,5 +28,6 @@ appRouter.get('/create', requireAuth, (req, res) => {
     res.sendFile('create.html', { root: './views' });
 });
 
+appRouter.delete('/delete/:id', requireAuth, deleteAppController);
 
 appRouter.post('/create', requireAuth, createApplicationController);

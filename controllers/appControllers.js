@@ -83,3 +83,20 @@ export async function fetchStatsController(req, res) {
         console.log(err);
     }
 }
+
+/**
+ * Delets an application from the DB
+ */
+export async function deleteAppController(req, res) {
+    try {
+        const db = await getDBConnection();
+        await db.run(
+            'DELETE FROM applications WHERE id = ? AND user_id = ?',
+            [req.params.id, req.session.userId]
+        );
+        res.status(200).json({ message: 'Deleted application' });
+        await db.close();
+    } catch (err) {
+        console.log(err);
+    }
+}
