@@ -13,24 +13,30 @@
 
 <body>
     <nav>
-        <a class="nav-link" href="landing.html">Home</a>
-        <a class="nav-link" href="login.html">Login</a>
+        <div id="logo">
+            <p id="logo-text">jobtrack.</p>
+        </div>
+
+        <div id="links">
+            <a class="nav-link" href="landing.html">Home</a>
+            <a class="nav-link" href="login.html">Login</a>
+        </div>
     </nav>
 
     <form id="register-form">
-        <div>
+        <div class="input-div">
             <label class="label" for="name-input">Full Name</label>
-            <input class="input" id="name-input" type="text" name="name-input" required>
+            <input class="input" id="name-input" type="text" name="name-input" placeholder="e.g Shwan Amin">
         </div>
 
-        <div>
+        <div class="input-div">
             <label class="label" for="email-input">Email</label>
-            <input class="input" id="email-input" type="email" name="email-input" required>
+            <input class="input" id="email-input" type="email" name="email-input" placeholder="e.g shwan@gmail.com">
         </div>
 
-        <div>
+        <div class="input-div">
             <label class="label" for="password-input">Password</label>
-            <input class="input" id="password-input" type="password" name="password-input" minlength="8">
+            <input class="input" id="password-input" type="password" name="password-input" placeholder="Minimum of 8 characters" minlength="8">
         </div>
 
         <button id="submit-btn" type="submit">Sign Up</button>
