@@ -23,11 +23,36 @@ export async function createApplicationController(req, res) {
 
         // Return success
         console.log('SUCCESSFUL CREATED APPLICATION');
-        res.status(200).json({ message: 'Successful login' });
+        res.status(200).json({ message: 'Successful creation' });
         await db.close();
 
     } catch (err) {
         console.error('Login error:', err.message);
-        res.status(500).json({ error: 'Login failed. Please try again.' });
+        res.status(500).json({ error: 'Creation failed. Please try again.' });
+    }
+}
+
+/**
+ * Fetches all the applications of current logged in user from the DB
+ */
+export async function fetchApplicationsController(req, res) {
+    // Check for user in DB
+    try {
+        // Create connection
+        const db = await getDBConnection();
+
+        const query = 'SELECT * FROM applications WHERE user_id = ?'
+        const params = [req.session.userId];
+
+        const table = await db.all(query, params)
+
+        // Return success
+        console.log('SUCCESSFUL FETCHED APPLICATIONS');
+        res.status(200).json(table);
+        await db.close();
+
+    } catch (err) {
+        console.error('Login error:', err.message);
+        res.status(500).json({ error: 'Fetch failed. Please try again!' });
     }
 }
