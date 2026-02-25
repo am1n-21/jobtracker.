@@ -93,7 +93,7 @@ export async function loginController(req, res) {
         req.session.userId = existing.id;
 
         // Return success
-        console.log('SUCCESSFUL REGISTER');
+        console.log('SUCCESSFUL LOGIN');
         res.status(200).json({ message: 'Successful login', userId: existing.id });
         await db.close();
 

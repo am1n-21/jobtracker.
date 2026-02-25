@@ -1,6 +1,7 @@
 // IMPORTS
 import express from 'express';
 import { requireAuth } from '../middleware.js';
+import { createApplicationController } from '../controllers/appControllers.js';
 
 // CONSTS
 export const appRouter = express.Router();
@@ -14,6 +15,8 @@ appRouter.get('/profile', requireAuth, (req, res) => {
     res.sendFile('profile.html', { root: './views' });
 });
 
-appRouter.get('/create', requireAuth ,(req, res) => {
+appRouter.get('/create', requireAuth, (req, res) => {
     res.sendFile('create.html', { root: './views' });
 });
+
+appRouter.post('/create', requireAuth, createApplicationController);

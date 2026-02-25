@@ -25,6 +25,7 @@ app.use(session({
 }));
 
 viewUsersTable();
+viewApplicationsTable();
 
 // SERVER
 app.use('/', appRouter);
