@@ -5,7 +5,9 @@ import {
     createApplicationController, 
     fetchApplicationsController, 
     fetchStatsController,
-    deleteAppController
+    deleteAppController,
+    fetchSingleApplicationController,
+    editApplicationController
 } from '../controllers/appControllers.js';
 
 // CONSTS
@@ -17,17 +19,22 @@ appRouter.get('/dashboard', requireAuth, (req, res) => {
 });
 
 appRouter.get('/apps', requireAuth, fetchApplicationsController);
-
 appRouter.get('/stats', requireAuth, fetchStatsController);
 
 appRouter.get('/profile', requireAuth, (req, res) => {
     res.sendFile('profile.html', { root: './views' });
 });
 
+appRouter.get('/edit', requireAuth, (req, res) => {
+    res.sendFile('edit.html', { root: './views' });
+});
+
 appRouter.get('/create', requireAuth, (req, res) => {
     res.sendFile('create.html', { root: './views' });
 });
 
-appRouter.delete('/delete/:id', requireAuth, deleteAppController);
+appRouter.get('/application/:id', requireAuth, fetchSingleApplicationController);
+appRouter.put('/application/edit/:id', requireAuth, editApplicationController);
+appRouter.delete('/application/delete/:id', requireAuth, deleteAppController);
 
 appRouter.post('/create', requireAuth, createApplicationController);

@@ -1,0 +1,129 @@
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* MAIN */
+main {
+    width: 90%;
+    max-width: 520px;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FORM HEADER */
+#form-header {
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+#back-link {
+    font-size: 0.85rem;
+    color: #888888;
+    text-decoration: none;
+    margin-bottom: 0.5em;
+}
+
+#back-link:hover {
+    color: #1E1E1E;
+}
+
+#form-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+#form-subtext {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888888;
+}
+
+.input {
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    padding: 0.8em 1em;
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    background: #F9F9F9;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+}
+
+.input:focus {
+    border-color: #1E1E1E;
+}
+
+textarea.input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* BUTTONS */
+#form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    margin-top: 0.5em;
+}
+
+#save-btn {
+    padding: 0.85em;
+    width: 100%;
+    background: #1E1E1E;
+    color: #F0EFED;
+    border: 1px solid #1E1E1E;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    cursor: pointer;
+}
+
+#save-btn:hover {
+    background: transparent;
+    color: #1E1E1E;
+}
+
+#delete-btn {
+    padding: 0.85em;
+    width: 100%;
+    background: transparent;
+    color: #9B2020;
+    border: 1px solid #FFD6D6;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: 'Inter', 'Segoe UI';
+    cursor: pointer;
+}
+
+#delete-btn:hover {
+    background: #FFD6D6;
+}

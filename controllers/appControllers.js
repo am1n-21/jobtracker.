@@ -100,3 +100,62 @@ export async function deleteAppController(req, res) {
         console.log(err);
     }
 }
+
+/**
+ * Fetches a single application (separated for performance instead of fetching all 
+ * and then filtering to find a single application)
+ */
+export async function fetchSingleApplicationController(req, res) {
+    try {
+        const db = await getDBConnection();
+
+        const app = await db.get(
+            'SELECT * FROM applications WHERE id = ? AND user_id = ?',
+            [req.params.id, req.session.userId]
+        );
+
+        if (!app) {
+            return res.status(404).json({ error: 'Application not found.' });
+        }
+
+        res.status(200).json(app);
+        await db.close();
+
+    } catch (err) {
+        console.error('Fetch single error:', err.message);
+        res.status(500).json({ error: 'Failed to fetch application.' });
+    }
+}
+
+/**
+ * Updates an existing application
+ */
+export async function editApplicationController(req, res) {
+    let { company, title, url, date, status, notes } = req.body;
+
+    if (!company || !title || !url || !date || !status) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    try {
+        const db = await getDBConnection();
+
+        const result = await db.run(
+            `UPDATE applications 
+             SET name = ?, title = ?, url = ?, date_applied = ?, status = ?, notes = ?
+             WHERE id = ? AND user_id = ?`,
+            [company, title, url, date, status, notes, req.params.id, req.session.userId]
+        );
+
+        if (result.changes === 0) {
+            return res.status(404).json({ error: 'Application not found.' });
+        }
+
+        res.status(200).json({ message: 'Application updated.' });
+        await db.close();
+
+    } catch (err) {
+        console.error('Edit error:', err.message);
+        res.status(500).json({ error: 'Failed to update application.' });
+    }
+}

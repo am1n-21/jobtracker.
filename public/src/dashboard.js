@@ -40,7 +40,7 @@ function renderApps(apps) {
                 <p class="date-text">${app.date_applied}</p>
                 <span class="badge badge-pending">${app.status}</span>
                 <div class="actions-div">
-                    <a class="view" href="">View</a>
+                    <a class="view" href="/edit?id=${app.id}">View</a>
                     <a class="delete" data-id="${app.id}" href="">Delete</a>
             </div>
         </div>
