@@ -12,11 +12,12 @@ import { profileRouter } from './routes/profile.js'
 import { createTables, viewUsersTable, viewApplicationsTable } from './db/db.js';
 
 // CONSTS
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(cors());
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Create the tables
+app.use(cors());
 createTables();
 
 // MIDDLEWARE
@@ -27,6 +28,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+// ROOT ROUTE
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // SERVER
 app.use('/', appRouter);
