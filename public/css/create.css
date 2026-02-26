@@ -17,6 +17,18 @@ main {
 }
 
 /* FORM HEADER */
+#back-link {
+    font-size: 0.85rem;
+    color: #888888;
+    text-decoration: none;
+    margin-bottom: 0.5em;
+}
+
+#back-link:hover {
+    color: #1E1E1E;
+}
+
+
 #form-header {
     margin-bottom: 1.5em;
 }

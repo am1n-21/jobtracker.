@@ -41,7 +41,7 @@ function renderApps(apps) {
                 <span class="badge badge-pending">${app.status}</span>
                 <div class="actions-div">
                     <a class="view" href="/edit?id=${app.id}">View</a>
-                    <a class="delete" data-id="${app.id}" href="">Delete</a>
+                    <a class="delete" data-id="${app.id}">Delete</a>
             </div>
         </div>
         `
@@ -80,7 +80,7 @@ document.addEventListener('click', async (e) => {
     if (e.target.classList.contains('delete')) {
         const id = e.target.dataset.id;
 
-        await fetch(`/delete/${id}`, {
+        await fetch(`/application/delete/${id}`, {
             method: 'DELETE'
         });
 

@@ -7,6 +7,7 @@ dotenv.config();
 
 import { appRouter } from './routes/app.js';
 import { authRouter } from './routes/auth.js';
+import { profileRouter } from './routes/profile.js'
 
 import { createTables, viewUsersTable, viewApplicationsTable } from './db/db.js';
 
@@ -14,6 +15,9 @@ import { createTables, viewUsersTable, viewApplicationsTable } from './db/db.js'
 const PORT = process.env.PORT || 3000; 
 const app = express();
 app.use(cors());
+
+// Create the tables
+createTables();
 
 // MIDDLEWARE
 app.use(express.json());
@@ -24,10 +28,8 @@ app.use(session({
     saveUninitialized: false
 }));
 
-viewUsersTable();
-viewApplicationsTable();
-
 // SERVER
 app.use('/', appRouter);
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 app.listen(PORT, () => console.log('Listening on port'));
